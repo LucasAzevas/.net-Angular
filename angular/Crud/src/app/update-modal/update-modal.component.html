@@ -1,0 +1,22 @@
+<mat-card class="size">
+    <h1 style="display: flex; justify-content: center;">Update Product</h1>
+    <div class="align">
+        <mat-form-field class="aligned">
+            <input disabled placeholder="{{this.name}}" matInput>
+        </mat-form-field>
+        <mat-form-field class="aligned">
+            <input disabled  placeholder="{{this.category}}" matInput>
+        </mat-form-field>
+    <mat-form-field class="aligned">
+        <mat-label>Price</mat-label>
+        <input [(ngModel)]="this.price" matInput>
+    </mat-form-field>
+    <mat-form-field class="aligned">
+        <mat-label>Quantity</mat-label>
+        <input [(ngModel)]="this.quantity" matInput>
+    </mat-form-field>
+    </div>
+    <div class="alignButton">
+    <button class="add" (click)="UpdateDataBase()">UpDate</button>
+    </div>
+    </mat-card>

@@ -1,0 +1,29 @@
+<h1>My Products</h1>
+<div class="table-container">
+    <div class="Align">
+        <button class="add" (click)="Modal()">Add</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Update Product</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Adicione suas linhas de dados aqui -->
+        <tr *ngFor="let reg of productsList" >
+          <td>{{reg.name}}</td>
+          <td>{{reg.category}}</td>
+          <td>${{reg.price}}</td>
+          <td>{{reg.quantity}}</td>
+          <td><button class="update" (click)="ModalUpdate(reg.id, reg.name, reg.quantity, reg.price, reg.category)">Update</button></td>
+          <td><button class="delete" (click)="DeleteItem(reg.id)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

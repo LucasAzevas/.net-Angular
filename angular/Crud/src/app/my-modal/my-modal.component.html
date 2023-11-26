@@ -1,0 +1,24 @@
+<mat-card class="size">
+<h1 style="display: flex; justify-content: center;">Add a Product</h1>
+<div class="align">
+<mat-form-field class="aligned">
+    <mat-label>Name</mat-label>
+    <input [(ngModel)]="insert.name" matInput>
+</mat-form-field>
+<mat-form-field class="aligned">
+    <mat-label>Category</mat-label>
+    <input [(ngModel)]="insert.category" matInput>
+</mat-form-field>
+<mat-form-field class="aligned">
+    <mat-label>Price</mat-label>
+    <input [(ngModel)]="insert.price" matInput>
+</mat-form-field>
+<mat-form-field class="aligned">
+    <mat-label>Quantity</mat-label>
+    <input [(ngModel)]="insert.quantity" matInput>
+</mat-form-field>
+</div>
+<div class="alignButton">
+<button class="add" (click)="InsertDataBase()">Insert</button>
+</div>
+</mat-card>
