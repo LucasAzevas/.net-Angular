@@ -1,2 +1,2 @@
 # .net-Angulat
-Basic CRUD with .net anf Angular
+Basic CRUD with .net and Angular
