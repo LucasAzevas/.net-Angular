@@ -1,17 +1,22 @@
-<h1>My Products</h1>
+<h1>Products</h1>
 <div class="table-container">
-    <div class="Align">
-        <button class="add" (click)="Modal()">Add</button>
+    <div  class="Align">
+        <button *ngIf="this.authentication" style="margin-right: 5px "class="add" (click)="Modal()">Add</button>
+        <button class="logoff" (click)="LogOut()">Log out</button>
+      
     </div>
+   
     <table>
       <thead>
         <tr>
           <th>Name</th>
           <th>Category</th>
+          <th>SubCategory</th>
           <th>Price</th>
           <th>Quantity</th>
-          <th>Update Product</th>
-          <th>Delete</th>
+          <th *ngIf="this.authentication2">Comprar</th>
+          <th *ngIf="this.authentication">Update Product</th>
+          <th *ngIf="this.authentication">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -19,10 +24,12 @@
         <tr *ngFor="let reg of productsList" >
           <td>{{reg.name}}</td>
           <td>{{reg.category}}</td>
+          <td>{{reg.subCategory}}</td>
           <td>${{reg.price}}</td>
           <td>{{reg.quantity}}</td>
-          <td><button class="update" (click)="ModalUpdate(reg.id, reg.name, reg.quantity, reg.price, reg.category)">Update</button></td>
-          <td><button class="delete" (click)="DeleteItem(reg.id)">Delete</button></td>
+          <td *ngIf="this.authentication2" (click)="BuyProduct(reg.id, reg.price, reg.quantity)"><button class="buy">Comprar</button></td>
+          <td *ngIf="this.authentication"><button class="update" (click)="ModalUpdate(reg.id, reg.name, reg.quantity, reg.price, reg.category, reg.subCategory)">Update</button></td>
+          <td *ngIf="this.authentication"><button class="delete" (click)="DeleteItem(reg.id)">Delete</button></td>
         </tr>
       </tbody>
     </table>

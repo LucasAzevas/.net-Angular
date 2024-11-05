@@ -5,12 +5,14 @@ import { Observable } from 'rxjs';
 import {InsertProducts} from 'src/app/Model/InsertModel'
 import { DeleteItem } from '../Model/DeleteItem';
 import { Update } from '../Model/UpdateModal';
+import { LoginRegister } from '../Model/LoginModel';
+import { Register } from '../Model/RegisterModel';
 @Injectable({
   providedIn: 'root'
 })
 export class MainServiceService {
-  apiUrl = 'https://localhost:7190'; // Substitua pela URL do seu backend
-  //private backendUrl = 'https://localhost:7190'; 
+  apiUrl = 'https://localhost:7190'; 
+
 
   constructor(private http: HttpClient) { }
 
@@ -32,5 +34,13 @@ export class MainServiceService {
 
   Update(params: Update): Observable<Products>{
     return this.http.put<Products>(`${this.apiUrl}/api/Products/api/UpdateProduct`, params);
+  }
+
+  Register(params:Register): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/api/Products/api/Register`, params);
+  }
+
+  Login(params:LoginRegister): Observable<string>{
+    return this.http.post<string>(`${this.apiUrl}/api/Products/api/Login`, params);
   }
 }

@@ -14,7 +14,10 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
-
+import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { UpdateModalComponent } from './update-modal/update-modal.component';
     MainComponent,
     MyModalComponent,
     UpdateModalComponent,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,9 @@ import { UpdateModalComponent } from './update-modal/update-modal.component';
     MatInputModule,
     FormsModule,
     NgxMaskModule.forRoot(),
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

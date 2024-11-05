@@ -1,0 +1,28 @@
+<mat-card class="size">
+    <div class="login-container">
+        <mat-tab-group>
+            <mat-tab label="Sign in">
+                <form action="#">
+                    <input type="text" placeholder="E-mail" name="username" [(ngModel)]="data.email" required>
+                    <input type="password" placeholder="Password" name="password" [(ngModel)]="data.password" required>
+                    <button type="submit" (click)="Login()">Login</button>
+                </form>
+            </mat-tab>
+            <mat-tab label="Sign up">
+                <form action="#">
+                    <input type="text" name="username" [(ngModel)]="user.email" placeholder="E-mail"  required>
+                    <input type="password" name="password"  [(ngModel)]="user.password" placeholder="Password"  required>
+                    <mat-form-field style="width: 100%; margin-top:5px">
+                    <mat-label>Role</mat-label>
+                    <mat-select [(ngModel)]="user.role" name="options">
+                      <mat-option value="ADM">ADM</mat-option>
+                      <mat-option value="Customer">Customer</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                    <button type="submit" (click)="Register()">Register</button>
+                </form>
+            </mat-tab>
+        </mat-tab-group>
+        <a href="#">Esqueceu a senha?</a>
+    </div>
+</mat-card>
