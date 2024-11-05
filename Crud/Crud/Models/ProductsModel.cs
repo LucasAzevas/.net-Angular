@@ -9,6 +9,8 @@
 
         public string Category { get; set; }
 
+        public string SubCategory { get; set; }
+
         public int Quantity { get; set; }
 
     }

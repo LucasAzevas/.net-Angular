@@ -1,11 +1,37 @@
 ﻿using Crud.Models;
 using Crud.Repository.Interface;
 using Dapper;
+using System.Collections.Generic;
 
 namespace Crud.Repository
 {
     public class ProductsRepository : SqlConnectionFactory, IProductsRepository
     {
+
+        public void Register(string email, string password, string role)
+        {
+            var DBregister =  "INSERT INTO [Estudos].[dbo].[User](" +
+                "Username," +
+                "PasswordHash," +
+                "Role)" +
+                "VALUES(" +
+                $"'{email}'," +
+                $"'{password}'," +
+                $"'{role}')";
+
+
+            Connection.Execute(DBregister);
+        }
+
+        public ResponseLoginModel Users(string email)
+        {
+
+            var user = $"Select * from [Estudos].[dbo].[User] Where Username = '{email}'";
+
+            ResponseLoginModel response = Connection.Query<ResponseLoginModel>(user).FirstOrDefault();
+
+            return response;
+        }
         public void DeleteItem(int obj)
         {
             var delete = $"Delete from [Estudos].[dbo].[products] where Id = {obj}";
@@ -33,11 +59,13 @@ namespace Crud.Repository
             var insert = "INSERT INTO [Estudos].[dbo].[products](" +
                 "Name," +
                 "Category," +
+                "SubCategory," +
                 "Price," +
                 "Quantity)" +
                 "VALUES(" +
                 $"'{obj.Name}'," +
                 $"'{obj.Category}'," +
+                $"'{obj.SubCategory}'," +
                 $"{obj.Price}," +
                 $"{obj.Quantity})";
 

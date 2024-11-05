@@ -4,6 +4,9 @@ namespace Crud.Repository.Interface
 {
     public interface IProductsRepository
     {
+
+        void Register(string email, string passwaord, string role);
+        ResponseLoginModel Users(string email);
         void InserirDados(ProductsModel obj);
 
         List<ProductsId> GetProducts();
